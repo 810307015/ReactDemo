@@ -3,8 +3,9 @@
 
 ### 文件目录设定
 
+- `config`, 打包的配置
 - `src`, 主要的代码内容
-  * `config`, 打包的配置
+  * `assets`, 静态资源
   * `components`, 公共的组件
   * `routes`, 路由的配置
   * `pages`, 主要的业务
@@ -31,4 +32,20 @@
   6. `react-router-dom`
   7. `react-router-redux`
 - `devDependencies`，开发环境所依赖的包，仅仅在开发环境中需要使用
-  1. 
+  1. `babel-loader`
+  2. `css-loader`
+  3. `style-loader`
+  4. `less-loader`
+  5. `url-loader`
+  6. `html-loader`
+  7. `extract-text-webpack-plugin`
+  8. `webpack-dashboard`
+  9. `webpack`
+  10. `webpack-cli`
+  11. `path`
+  12. `@babel/core`
+  12. `@babel/plugin-proposal-class-properties`
+  13. `@babel/plugin-proposal-object-rest-spread`
+  14. `babel-plugin-import`
+  15. `@babel/preset-env`
+  16. `@babel/preset-react`
