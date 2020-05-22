@@ -1,0 +1,26 @@
+{
+  "name": "react-empty-webpack-demo",
+  "version": "1.0.0",
+  "description": "从零开始构建一个react项目架子",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/810307015/ReactDemo.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "empty",
+    "demo",
+    "cli"
+  ],
+  "author": "zhangzhongming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/810307015/ReactDemo/issues"
+  },
+  "homepage": "https://github.com/810307015/ReactDemo#readme"
+}
