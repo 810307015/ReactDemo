@@ -1,4 +1,5 @@
 const DashboardPlugin = require('webpack-dashboard/plugin');
+
 const path = require('path');
 const webpack = require('webpack');
 
@@ -7,6 +8,8 @@ const config = require('./webpack.base');
 const resolve = (url) => {
   return path.resolve(__dirname, url);
 }
+
+process.env.NODE_ENV = 'development';
 
 module.exports = {
   ...config,
@@ -23,12 +26,13 @@ module.exports = {
   stats: "errors-only",  // 精确控制要显示的 bundle 信息
   devServer: {
     proxy: { // proxy URLs to backend development server
-      '/api': 'http://localhost:3000'
+      '/api': 'http://localhost:8888'
     },
     publicPath: "/",
-    contentBase: resolve('../src/assets/index.html'), // boolean | string | array, static file location
+    contentBase: resolve('../dist/index.html'), // boolean | string | array, static file location
     compress: true, // enable gzip compression
     port: 3333,
+    open: true,
     // historyApiFallback: true, // true for index.html upon 404, object for multiple paths
     hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
     after: function(app, server, compiler) {
@@ -40,6 +44,7 @@ module.exports = {
   },
 
   plugins: [
+    ...config.plugins,
     // 编译时(compile time)插件
     // webpack-dev-server 强化插件
     new DashboardPlugin(),

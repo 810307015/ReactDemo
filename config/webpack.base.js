@@ -2,6 +2,9 @@
  * 开发环境的打包配置
  */
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const resolve = (url) => {
   return path.resolve(__dirname, url);
@@ -13,11 +16,11 @@ module.exports = {
   // webpack 开始打包
   output: {
     // webpack 如何输出结果的相关选项
-    path: resolve("../dist"), // string
+    path: resolve("../dist/js"), // string
     // 所有输出文件的目标路径
     // 必须是绝对路径（使用 Node.js 的 path 模块）
-    filename: "index.js", // string    // 「入口分块(entry chunk)」的文件名模板（出口分块？）
-    publicPath: "../src/assets/", // string    // 输出解析文件的目录，url 相对于 HTML 页面
+    filename: "js/index.js", // string    // 「入口分块(entry chunk)」的文件名模板（出口分块？）使用HtmlWebpackPlugin时引入的js文件就是这个路径
+    publicPath: "/", // string    // 输出解析文件的目录，url 相对于 HTML 页面
     library: "MyLibrary", // string,
     // 导出库(exported library)的名称
     libraryTarget: "umd", // 通用模块定义    // 导出库(exported library)的类型
@@ -29,7 +32,7 @@ module.exports = {
     rules: [
       // 模块规则（配置 loader、解析器等选项）
       {
-        test: /\.js[x]?$/,
+        test: /\.js|jsx$/,
         exclude: /node_modules/,
         include: [
           resolve("../src")
@@ -50,9 +53,9 @@ module.exports = {
         // 应该应用的 loader，它相对上下文解析
         // 为了更清晰，`-loader` 后缀在 webpack 2 中不再是可选的
         // 查看 webpack 1 升级指南。
-        // options: {
-        //   presets: ["es2015"]
-        // },
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"]
+        },
         // loader 的可选项
       },
       {
@@ -68,17 +71,27 @@ module.exports = {
       {
         test: /\.less$/,
         use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // 这里可以指定一个 publicPath
+              // 默认使用 webpackOptions.output中的publicPath
+              publicPath: './css'
+            },
+          },
+          // 'style-loader',
+          'css-loader',
           'less-loader',
-          { loader: 'less-loader', options: { javascriptEnabled: true } }
         ]
       },
       {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [
-          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          // 'style-loader',
           'css-loader'
         ]
       },
@@ -127,4 +140,16 @@ module.exports = {
     /* 可供选择的别名语法（点击展示） */
     /* 高级解析选项（点击展示） */
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      // 类似 webpackOptions.output里面的配置 可以忽略
+      filename: 'css/[name].css',
+      chunkFilename: 'css/[id].css',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: resolve('../src/assets/index.html')
+    }),
+    new CleanWebpackPlugin(), // 打包之前清空dist文件夹
+  ],
 }

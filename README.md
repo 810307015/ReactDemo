@@ -38,14 +38,18 @@
   4. `less-loader`
   5. `url-loader`
   6. `html-loader`
-  7. `extract-text-webpack-plugin`
-  8. `webpack-dashboard`
-  9. `webpack`
-  10. `webpack-cli`
-  11. `path`
-  12. `@babel/core`
+  7. `webpack-dashboard`
+  8. `webpack`
+  9. `webpack-cli`
+  10. `path`
+  11. `@babel/core`
   12. `@babel/plugin-proposal-class-properties`
   13. `@babel/plugin-proposal-object-rest-spread`
   14. `babel-plugin-import`
   15. `@babel/preset-env`
   16. `@babel/preset-react`
+  17. `webpack-dev-server`
+  18. `html-webpack-plugin`
+  19. `htmllint-loader`
+  20. `terser-webpack-plugin`
+  21. `clean-webpack-plugin`
