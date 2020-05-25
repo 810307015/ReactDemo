@@ -1,6 +1,3 @@
-/**
- * 开发环境的打包配置
- */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
