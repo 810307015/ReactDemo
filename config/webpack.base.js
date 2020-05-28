@@ -133,6 +133,7 @@ module.exports = {
       "Reducers": resolve("../src/reducers"),
       "Routes": resolve("../src/routes"),
       "Store": resolve("../src/store"),
+      "Utils": resolve("../src/utils"),
     },
     /* 可供选择的别名语法（点击展示） */
     /* 高级解析选项（点击展示） */

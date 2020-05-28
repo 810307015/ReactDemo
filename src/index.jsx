@@ -1,13 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
 
-// const HelloWorld = () => React.lazy(() => import('Components/test/HelloWorld'));
-import HelloWorld from 'Components/test/HelloWorld';
+const HelloWorld = lazy(() => import('Components/test/HelloWorld'));
+// import HelloWorld from 'Components/test/HelloWorld';
 
 function render() {
-  console.log(111);
   ReactDOM.render(
-    <HelloWorld />,
+    <Suspense
+      fallback={<div>loading...</div>}
+    >
+      <HelloWorld />
+    </Suspense>,
     document.getElementById("root")
   );
 }

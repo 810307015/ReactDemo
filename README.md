@@ -14,6 +14,7 @@
   * `actions`, 发布动作指令
   * `apis`, 所有的`api`
   * `mocks`, `mock`数据
+  * `utils`, 公共方法
   * `index.js`, 项目打包的主入口
 - `dist`, 打包过后的目录
 - `.babelrc`, `babel`的配置
