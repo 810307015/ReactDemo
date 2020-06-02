@@ -29,6 +29,7 @@ module.exports = {
       '/api': 'http://localhost:8888'
     },
     publicPath: "/",
+    historyApiFallback: true, // 开始history模式，使用browserHistory时，需要为true，不然就无法通过url匹配路径
     contentBase: resolve('../dist/index.html'), // boolean | string | array, static file location
     compress: true, // enable gzip compression
     port: 3333,

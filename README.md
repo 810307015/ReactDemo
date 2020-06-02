@@ -55,3 +55,12 @@
   20. `terser-webpack-plugin`，`UglifyJsPlugin`在`webpack`4之后已经被放进了`config`中，在对应的`config`中配置该插件用来开启缓存和多进程
   21. `clean-webpack-plugin`，每次打包前先清空`dist`文件夹
   22. `mini-css-extract-plugin`，`extract-text-webpack-plugin`不支持`webpack4.0`之后的，有人说升级到4.0的beta就可以，但是我目前这个最新的版本的`webpack`依然会报错，只能找一个替代品，用来将代码里的`css`抽离出来作为单独的`css`文件。
+
+### 按需加载组件的封装
+
+- 结合`React`官方提供的`lazy`配合`Suspense`实现一个公共的按需加载组件的方法。具体实现见`utils/component`。
+
+### 配置路由过程中遇到的问题
+
+- `react-router`升级到4.0以后，不再支持`Route`的嵌套，需要在对应的父级公共组件下遍历所有的子路由，见`pages/Home`文件。
+- 使用`browserHistory`时，需要在`webpack`的`devServer`中添加`historyApiFallback: true`，保证`url`改变时，能匹配到正确的路由。
