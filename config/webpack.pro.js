@@ -32,7 +32,26 @@ module.exports = {
       new TerserPlugin({
         cache: true, // 开启缓存
         parallel: true, // 支持多进程
-        sourceMap: true,
+        sourceMap: true, // Must be set to true if using source-maps in production
+        terserOptions: {
+          ecma: undefined,
+          warnings: false,
+          parse: {},
+          compress: {
+            warnings: false,
+            drop_console: true,//console
+            pure_funcs: ['console.log']//移除console
+          },
+          mangle: true, // Note `mangle.properties` is `false` by default.
+          module: false,
+          output: null,
+          toplevel: false,
+          nameCache: null,
+          ie8: false,
+          keep_classnames: undefined,
+          keep_fnames: false,
+          safari10: false,
+        }
       }),
     ]
   },
