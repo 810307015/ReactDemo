@@ -2,7 +2,7 @@ import { AsyncComponent } from 'Utils/component';
 
 const Main = AsyncComponent(() => import('Pages/main'));
 const Home = AsyncComponent(() => import('Pages/Home'));
-const HelloWorld = AsyncComponent(() => import('Components/test/HelloWorld'));
+const Test = AsyncComponent(() => import('Pages/test/'));
 
 const routes = [
   {
@@ -16,7 +16,7 @@ const routes = [
     children: [
       {
         path: '/hello',
-        component: HelloWorld
+        component: Test
       }
     ]
   }
