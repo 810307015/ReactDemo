@@ -125,6 +125,7 @@ module.exports = {
       // "module": path.resolve(__dirname, "app/third/module.js"),
       // 起别名 "module" -> "./app/third/module.js" 和 "module/file" 会导致错误
       // 模块别名相对于当前上下文导入
+      "@": resolve("../src"),
       "Actions": resolve("../src/actions"),
       "Apis": resolve("../src/apis"),
       "Assets": resolve("../src/assets"),
