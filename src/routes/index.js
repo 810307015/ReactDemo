@@ -2,7 +2,8 @@ import { AsyncComponent } from 'Utils/component';
 
 const Main = AsyncComponent(() => import('Pages/main'));
 const Home = AsyncComponent(() => import('Pages/Home'));
-const Test = AsyncComponent(() => import('Pages/test/'));
+const Test = AsyncComponent(() => import('Pages/test'));
+const Subscribe = AsyncComponent(() => import('Pages/subscribe'));
 
 const routes = [
   {
@@ -17,6 +18,10 @@ const routes = [
       {
         path: '/hello',
         component: Test
+      },
+      {
+        path: '/subscribe',
+        component: Subscribe
       }
     ]
   }

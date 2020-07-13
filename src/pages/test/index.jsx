@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as indexAction from 'Actions';
-import { AsyncComponent } from 'Utils/component';
-
-const HelloWorld = AsyncComponent(() => import('Components/test/HelloWorld'));
 
 class Test extends Component {
   
@@ -19,7 +16,6 @@ class Test extends Component {
     const { count } = this.props;
     return (
       <div className="Test">
-        <HelloWorld />
         <input type="number" ref={input => this.input = input} />
         <div className="add" onClick={this.add}>增加</div>
         <div className="show">{count}</div>
