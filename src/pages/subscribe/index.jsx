@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { inject } from 'Utils/component';
+import { inject } from 'service-redux';
 
 class Subscribe extends Component {
   

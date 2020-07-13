@@ -1,29 +1,13 @@
-import { Subject } from 'rxjs';
-import { wrapService } from 'Utils/service';
+import { Service, wrapService } from 'service-redux';
 
-class TestService {
-  constructor(initData = {}) {
-    this.data = initData;
-  }
+class TestService extends Service {
 
-  data$ = new Subject();
-
-  subscribe = (callback) => {
-    this.subscription = this.data$.subscribe(callback);
-    this.data$.next(this.data);
-
-    return () => {
-      this.subscription.unsubscribe();
-    }
+  constructor(props) {
+    super(props);
   }
 
   add = (data) => {
     this.data.count = Number(data.count) + Number(this.data.count);
-    this.data$.next(this.data);
-  }
-
-  set = (data) => {
-    this.data = { ...this.data, ...data };
     this.data$.next(this.data);
   }
 }
