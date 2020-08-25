@@ -13,7 +13,7 @@ module.exports = {
   // webpack 开始打包
   output: {
     // webpack 如何输出结果的相关选项
-    path: resolve("../dist/js"), // string
+    path: resolve("../dist"), // string
     // 所有输出文件的目标路径
     // 必须是绝对路径（使用 Node.js 的 path 模块）
     filename: "js/index.js", // string    // 「入口分块(entry chunk)」的文件名模板（出口分块？）使用HtmlWebpackPlugin时引入的js文件就是这个路径
