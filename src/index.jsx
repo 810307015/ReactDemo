@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import { createBrowserHistory } from 'history';
+import { ServiceProvider } from 'service-redux';
 
 import * as services from 'Services';
-import { renderRoutes, ServiceProvider } from 'Utils/component';
+import { renderRoutes } from 'Utils/component';
 import routes from 'Routes';
 import store from 'Store';
 

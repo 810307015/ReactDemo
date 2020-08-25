@@ -3,7 +3,7 @@
  */
 import React, { useState, useEffect } from 'react';
 
-import { inject } from 'Utils/component';
+import { inject } from 'service-redux';
 
 function Main(props) {
   const { history, count } = props;
@@ -19,8 +19,8 @@ function Main(props) {
   return (
     <div className="Main">
       首页
-      <div onClick={goToHello}>前往Hello页</div>
-      <div onClick={goToSubscribe}>前往Subscribe页</div>
+      <div onClick={goToHello}>前往Hello页(传统的redux)</div>
+      <div onClick={goToSubscribe}>前往Subscribe页(使用rxjs自定义的redux)</div>
       <div>当前的count: {count}</div>
     </div>
   )
